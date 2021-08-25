@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 import io
 import os
 
-VERSION = "1.0"
+VERSION = "0.1"
 
 
 def get_long_description():
@@ -15,10 +15,10 @@ def get_long_description():
 
 setup(
     name="pelican-to-sqlite",
-    description="CLI tool for loading markdown files into a SQLite database",
+    description="CLI tool for loading local pelican markdown files into a SQLite database",
     long_description=get_long_description(),
     long_description_content_type="text/markdown",
-    author="Simon Willison",
+    author="Ryan Cheley",
     version=VERSION,
     license="Apache License, Version 2.0",
     packages=find_packages(),
@@ -30,20 +30,11 @@ setup(
         [console_scripts]
         pelican-to-sqlite=pelican_to_sqlite.cli:cli
     """,
-    # url="https://github.com/simonw/markdown-to-sqlite",
-    # project_urls={
-    #     "Issues": "https://github.com/simonw/markdown-to-sqlite/issues",
-    #     "CI": "https://github.com/simonw/markdown-to-sqlite/actions",
-    #     "Changelog": "https://github.com/simonw/markdown-to-sqlite/releases",
-    # },
-    # classifiers=[
-    #     "Intended Audience :: Developers",
-    #     "Intended Audience :: Science/Research",
-    #     "Intended Audience :: End Users/Desktop",
-    #     "Topic :: Database",
-    #     "License :: OSI Approved :: Apache Software License",
-    #     "Programming Language :: Python :: 3.6",
-    #     "Programming Language :: Python :: 3.7",
-    # ],
-    # python_requires=">=3.6",
+    url="https://github.com/ryancheley/pelican-to-sqlite",
+    project_urls={
+        "Issues": "https://github.com/ryancheley/pelican-to-sqlite/issues",
+        "CI": "https://github.com/ryancheley/pelican-to-sqlite/actions",
+        "Changelog": "https://github.com/ryancheley/pelican-to-sqlite/releases",
+    },
+    python_requires=">=3.6",
 )
