@@ -38,10 +38,10 @@ def cli(paths, dbname, table):
                 item = _helper(metadata, line)
                 if item:
                     start_line += 1
-                    metadata_dictionary[item.split(':', 1)[0].lower()] = item.split(':', 1)[1].replace('\n', '')
+                    metadata_dictionary[item.split(':', 1)[0].lower()] = item.split(':', 1)[1].replace('\n', '').lstrip()
         if 'save_as' not in metadata_dictionary:
             metadata_dictionary['save_as'] = None
-        content = ''.join(lines[start_line:])
+        content = ''.join(lines[start_line+2:])
         doc = {
             "_id": hashlib.sha1(content.encode("utf8")).hexdigest(),
             "content": content,
