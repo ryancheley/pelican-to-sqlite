@@ -1,8 +1,9 @@
-from setuptools import setup, find_packages
 import io
 import os
 
-VERSION = "0.1.2"
+from setuptools import find_packages, setup
+
+VERSION = "0.2.0"
 
 
 def get_long_description():
@@ -23,8 +24,7 @@ setup(
     license="Apache License, Version 2.0",
     packages=find_packages(),
     install_requires=["sqlite-utils", "click"],
-    extras_require={"test": ["pytest"]},
-    tests_require=["pelican-to-sqlite[test]"],
+    extras_require={"test": ["pytest", "black", "isort", "coverage", "mypy", "cogapp"]},
     setup_requires=["pytest-runner"],
     entry_points="""
         [console_scripts]
@@ -36,5 +36,14 @@ setup(
         "CI": "https://github.com/ryancheley/pelican-to-sqlite/actions",
         "Changelog": "https://github.com/ryancheley/pelican-to-sqlite/releases",
     },
-    python_requires=">=3.6",
+    python_requires=">=3.7",
+    classifiers=[
+        "Development Status :: 4 - Beta",
+        "Intended Audience :: Developers",
+        "Topic :: Utilities",
+        "Programming Language :: Python :: 3.7",
+        "Programming Language :: Python :: 3.8",
+        "Programming Language :: Python :: 3.9",
+        "Programming Language :: Python :: 3.10",
+    ],
 )
