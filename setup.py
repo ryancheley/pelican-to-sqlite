@@ -1,8 +1,9 @@
-from setuptools import setup, find_packages
 import io
 import os
 
-VERSION = "0.1.2"
+from setuptools import find_packages, setup
+
+VERSION = "0.2.0"
 
 
 def get_long_description():
@@ -36,5 +37,5 @@ setup(
         "CI": "https://github.com/ryancheley/pelican-to-sqlite/actions",
         "Changelog": "https://github.com/ryancheley/pelican-to-sqlite/releases",
     },
-    python_requires=">=3.6",
+    python_requires=">=3.7",
 )
