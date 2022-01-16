@@ -3,7 +3,7 @@ import os
 
 from setuptools import find_packages, setup
 
-VERSION = "0.2.0"
+VERSION = "0.3.0"
 
 
 def get_long_description():
@@ -23,7 +23,7 @@ setup(
     version=VERSION,
     license="Apache License, Version 2.0",
     packages=find_packages(),
-    install_requires=["sqlite-utils", "click"],
+    install_requires=["sqlite-utils", "click", "html2text", "pelican"],
     extras_require={"test": ["pytest"]},
     tests_require=["pelican-to-sqlite[test]"],
     setup_requires=["pytest-runner"],
