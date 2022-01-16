@@ -1,5 +1,5 @@
-import sqlite_utils
 import html2text
+import sqlite_utils
 
 from pelican import signals
 
@@ -8,7 +8,7 @@ DATABASE = "pelican.db"
 db = sqlite_utils.Database(DATABASE)
 
 
-def save_items(record: dict, table: str, db: sqlite_utils.Database) -> None: # pragma: no cover
+def save_items(record: dict, table: str, db: sqlite_utils.Database) -> None:  # pragma: no cover
     db[table].insert(record, pk="slug", alter=True, replace=True)
 
 
@@ -23,7 +23,7 @@ def create_record(content) -> dict:
     title = content.title
     url = "https://www.ryancheley.com/" + content.url
     status = content.status
-    if status == "published" and title == "Vin's Last Game":
+    if status == "published":
         record = {
             "author": author,
             "category": category,
@@ -38,12 +38,12 @@ def create_record(content) -> dict:
 
 
 # Hook function, with the right parameters
-def run(_, content): # pragma: no cover
+def run(_, content):  # pragma: no cover
     record = create_record(content)
     save_items(record, "content", db)
 
 
 # Module entry point
-def register(): # pragma: no cover
+def register():  # pragma: no cover
     # Connect the run hook function to the content_written signal
     signals.article_generator_write_article.connect(run)
