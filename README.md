@@ -8,7 +8,7 @@ Create a SQLite database containing data posts from your local [pelican](https:/
 
 ## Usage
 
-Once the plugin has been installed you only need to run `'make html` to create a SQLite database called `pelican.db` which will be created in the root of your pelican site. 
+Once the plugin has been installed you only need to run `'make html` to create a SQLite database called `pelican.db` which will be created in the root of your pelican site.
 
 You will need to add a form to your `base.html` template (or similar template depending on your theme). The form that needs to be added looks like this (assuming you use [Tailwind](https://tailwindcss.com)):
 
@@ -60,4 +60,4 @@ There are several options for outputting to Vercel. See the [documentation](http
 
 ## Using with Datasette
 
-The SQLite database produced by this tool is designed to be browsed using [Datasette](https://datasette.readthedocs.io/). See my post [Adding Search to My Pelican Blog with Datasette](https://www.ryancheley.com/2022/01/16/adding-search-to-my-pelican-blog-with-datasette/) for more details. 
+The SQLite database produced by this tool is designed to be browsed using [Datasette](https://datasette.readthedocs.io/). See my post [Adding Search to My Pelican Blog with Datasette](https://www.ryancheley.com/2022/01/16/adding-search-to-my-pelican-blog-with-datasette/) for more details.
