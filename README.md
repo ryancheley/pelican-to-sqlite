@@ -1,10 +1,16 @@
 # pelican-to-sqlite
 
+[![PyPI](https://img.shields.io/pypi/v/pelican-to-sqlite.svg)](https://pypi.org/project/pelican-to-sqlite/)
+[![GitHub changelog](https://img.shields.io/github/v/release/ryancheley/pelican-to-sqlite?include_prereleases&label=changelog)](https://github.com/ryancheley/pelican-to-sqlite/releases)
+[![Tests](https://github.com/ryancheley/pelican-to-sqlite/workflows/Test/badge.svg)](https://github.com/ryancheley/pelican-to-sqlite/actions?query=workflow%3ATest)
+[![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](https://github.com/ryancheley/pelican-to-sqlite/blob/main/LICENSE)
+[![pre-commit.ci status](https://results.pre-commit.ci/badge/github/ryancheley/pelican-to-sqlite/main.svg)](https://results.pre-commit.ci/latest/github/ryancheley/pelican-to-sqlite/main)
+
 Create a SQLite database containing data posts from your local [pelican](https://blog.getpelican.com) files.
 
 ## How to install
 
-    $ pip install pelican-to-sqlite
+    pip install pelican-to-sqlite
 
 ## Usage
 
