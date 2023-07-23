@@ -1,7 +1,7 @@
 [project]
 name = "pelican-to-sqlite"
 version = "0.6.0"
-description = "CLI tool for loading local pelican markdown files into a SQLite database"
+description = "A Pelican Plugin for outputting your Pelican posts into a SQLite Database"
 readme = "README.md"
 authors = [{name = "Ryan Cheley"}]
 license = {text = "Apache-2.0"}
@@ -15,6 +15,9 @@ dependencies = [
     "pelican"
 ]
 
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
 
 [project.urls]
 Issues = "https://github.com/ryancheley/pelican-to-sqlite/issues"
