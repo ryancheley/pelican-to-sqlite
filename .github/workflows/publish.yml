@@ -49,7 +49,7 @@ jobs:
           ${{ runner.os }}-publish-pip-
     - name: Install dependencies
       run: |
-        pip install setuptools wheel twine
+        pip install setuptools wheel twine build
     - name: Publish
       env:
         TWINE_USERNAME: __token__
