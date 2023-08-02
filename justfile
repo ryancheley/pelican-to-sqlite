@@ -29,3 +29,14 @@ mypy:
 # generates the README.md file --help section
 cog:
     cog -r README.md
+
+
+# generates the README.md file --help section
+docs:
+    cog -r README.md
+    cp README.md docs/index.md
+
+# pulls from branch
+sync branch:
+    git switch {{branch}}
+    git pull origin {{branch}}
