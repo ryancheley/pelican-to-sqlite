@@ -12,16 +12,22 @@ repos:
     rev: 7.1.1
     hooks:
     - id: flake8
+      language_version: python3.10
 -   repo: https://github.com/pycqa/isort
     rev: 5.13.2
     hooks:
       - id: isort
         args: ["--profile", "black"]
         name: isort (python)
+        language_version: python3.10
 -   repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v5.0.0
     hooks:
     - id: trailing-whitespace
+      language_version: python3.10
     - id: end-of-file-fixer
+      language_version: python3.10
     - id: check-yaml
+      language_version: python3.10
     - id: check-added-large-files
+      language_version: python3.10

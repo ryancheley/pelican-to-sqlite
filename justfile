@@ -40,3 +40,6 @@ docs:
 sync branch:
     git switch {{branch}}
     git pull origin {{branch}}
+
+pre-commit:
+    pre-commit run --all-files
