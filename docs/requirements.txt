@@ -46,7 +46,7 @@ mkdocs-get-deps==0.2.0
     # via
     #   mkdocs
     #   mkdocstrings
-mkdocstrings[python]==0.28.0
+mkdocstrings[python]==0.28.1
     # via
     #   -r docs/requirements.in
     #   mkdocstrings-python
