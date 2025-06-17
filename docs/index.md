@@ -10,6 +10,12 @@ Create a SQLite database containing data posts from your local [pelican](https:/
 
 ## How to install
 
+### Using uv (recommended)
+
+    uv add pelican-to-sqlite
+
+### Using pip
+
     pip install pelican-to-sqlite
 
 ## Usage
@@ -40,16 +46,20 @@ In the above, `your-action-link-here` should be substituted for the link that yo
 
 There are many options to deploy your SQLite database with `datasette`. Below describes using Vercel.
 
-First, install `datasette` using pip
+> **Note**: The `datasette-publish-vercel` plugin may have limited maintenance. Consider alternative deployment methods like [Datasette Cloud](https://www.datasette.cloud/) or manual Vercel deployment if you encounter issues.
+
+First, install `datasette` using uv (or pip)
 
 ```
-pip install datasette
+uv add datasette
+# or: pip install datasette
 ```
 
-Next, install the datasette plugin `datasette-publish-vercel` using pip
+Next, install the datasette plugin `datasette-publish-vercel` using uv (or pip)
 
 ```
-pip install datasette-publish-vercel
+uv add datasette-publish-vercel
+# or: pip install datasette-publish-vercel
 ```
 
 and the [Vercel CLI](https://vercel.com/cli)
