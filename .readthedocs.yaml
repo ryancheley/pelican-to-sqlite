@@ -16,6 +16,7 @@ build:
     post_install:
       - pip install uv
       - uv sync --extra docs
+      - uv pip install markdown-include
 
 mkdocs:
   configuration: mkdocs.yml

@@ -35,7 +35,7 @@ test = [
 docs = [
     "mkdocs",
     "mkdocstrings[python]",
-    "markdown_include",
+    "markdown-include",
 ]
 dev = [
     "packaging",
