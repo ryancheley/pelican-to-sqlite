@@ -1,6 +1,6 @@
 [project]
 name = "pelican-to-sqlite"
-version = "0.6.0"
+dynamic = ["version"]
 description = "A Pelican Plugin for outputting your Pelican posts into a SQLite Database"
 readme = "README.md"
 authors = [{name = "Ryan Cheley"}]
@@ -14,10 +14,11 @@ dependencies = [
     "html2text",
     "pelican"
 ]
+requires-python = ">=3.9"
 
 [build-system]
-requires = ["setuptools>=61.0"]
-build-backend = "setuptools.build_meta"
+requires = ["hatchling", "hatch-vcs"]
+build-backend = "hatchling.build"
 
 [project.urls]
 Issues = "https://github.com/ryancheley/pelican-to-sqlite/issues"
@@ -28,10 +29,47 @@ Changelog = "https://github.com/ryancheley/pelican-to-sqlite/releases"
 [project.optional-dependencies]
 test = [
     "pytest",
+    "coverage",
+    "mypy",
+]
+docs = [
+    "mkdocs",
+    "mkdocstrings[python]",
+    "markdown-include",
+]
+dev = [
+    "packaging",
+    "ruff",
 ]
 
-[tool.black]
+[tool.hatch.build.targets.wheel]
+packages = ["pelican"]
+
+[tool.hatch.version]
+source = "vcs"
+fallback-version = "0.6.3"
+
+[tool.hatch.build.hooks.vcs]
+version-file = "pelican/plugins/pelican_to_sqlite/_version.py"
+
+[tool.ruff]
 line-length = 130
-target-version = ['py39']
-include = '\.pyi?$'
-exclude = '(venv)'
+target-version = "py39"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP"]
+ignore = []
+
+[tool.ruff.lint.per-file-ignores]
+"*/_version.py" = ["UP035", "UP006", "I001"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+
+[dependency-groups]
+dev = [
+    "build>=1.2.2.post1",
+    "pre-commit>=4.2.0",
+    "twine>=6.1.0",
+]
