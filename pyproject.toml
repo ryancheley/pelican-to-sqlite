@@ -14,7 +14,7 @@ dependencies = [
     "html2text",
     "pelican"
 ]
-requires-python = ">=3.9"
+requires-python = ">=3.10"
 
 [build-system]
 requires = ["hatchling", "hatch-vcs"]
@@ -41,6 +41,7 @@ dev = [
     "packaging",
     "ruff",
 ]
+
 
 [tool.hatch.build.targets.wheel]
 packages = ["pelican"]
@@ -72,4 +73,7 @@ dev = [
     "build>=1.2.2.post1",
     "pre-commit>=4.2.0",
     "twine>=6.1.0",
+    "pytest",
+    "coverage",
+    "mypy",
 ]
