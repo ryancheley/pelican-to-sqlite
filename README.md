@@ -35,7 +35,7 @@ Perfect for bloggers and content creators who want to offer visitors an easy way
 After installing, add the plugin to your Pelican configuration file (`pelicanconf.py`):
 
 ```python
-PLUGINS = ['pelican_to_sqlite']
+PLUGINS = ["pelican_to_sqlite"]
 ```
 
 ### Generate the Database
