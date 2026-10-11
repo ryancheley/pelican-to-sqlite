@@ -1,0 +1,32 @@
+name: Dependabot auto-merge
+
+# Runs after the Test workflow finishes. Because this is a workflow_run event,
+# it executes from the default branch with a writable token (unlike workflows
+# triggered directly by Dependabot), so it can merge the PR once CI is green.
+# Safe use of workflow_run: this never checks out or runs the PR's code with the
+# elevated token; it only calls `gh pr merge`.
+on: # zizmor: ignore[dangerous-triggers]
+  workflow_run:
+    workflows: ["Test"]
+    types:
+      - completed
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  automerge:
+    name: Squash-merge passing Dependabot PRs
+    runs-on: ubuntu-latest
+    if: >-
+      github.event.workflow_run.conclusion == 'success' &&
+      github.event.workflow_run.event == 'push' &&
+      startsWith(github.event.workflow_run.head_branch, 'dependabot/')
+    steps:
+    - name: Merge the PR
+      env:
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        BRANCH: ${{ github.event.workflow_run.head_branch }}
+        REPO: ${{ github.event.repository.full_name }}
+      run: gh pr merge "$BRANCH" --repo "$REPO" --squash --delete-branch
