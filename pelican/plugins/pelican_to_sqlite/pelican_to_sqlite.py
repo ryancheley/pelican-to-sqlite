@@ -1,3 +1,5 @@
+"""Write published Pelican content into a SQLite database."""
+
 from datetime import datetime
 
 import html2text
@@ -7,13 +9,15 @@ from pelican import signals
 
 
 def save_items(record: dict, table: str, db: sqlite_utils.Database) -> None:  # pragma: no cover
+    """Upsert a record into the given table, keyed on slug."""
     try:
-        db[table].insert(record, pk="slug", alter=True, replace=True)
+        db.table(table).insert(record, pk="slug", alter=True, replace=True)
     except ZeroDivisionError:
         pass
 
 
 def create_record(content) -> dict:
+    """Build a database record from published Pelican content."""
     record = {}
     author = content.author.name
     category = content.category.name
@@ -43,6 +47,7 @@ def create_record(content) -> dict:
 
 # Hook function, with the right parameters
 def run(gen, content):  # pragma: no cover
+    """Write a single piece of generated content to the database."""
     db_name = gen.settings.get("DATABASE", "pelican.db")
     db = sqlite_utils.Database(db_name)
     record = create_record(content)
@@ -51,6 +56,7 @@ def run(gen, content):  # pragma: no cover
 
 # Module entry point
 def register():  # pragma: no cover
+    """Connect the run hook to Pelican's article and page write signals."""
     # Connect the run hook function to the content_written signal
     signals.article_generator_write_article.connect(run)
     signals.page_generator_write_page.connect(run)

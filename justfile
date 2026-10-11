@@ -5,8 +5,8 @@ test:
     open htmlcov/index.html
 
 # runs the pre-commit check command
-check: lint mypy
-    pre-commit run --all-files
+check: lint ty
+    prek run --all-files
 
 # run ruff linting and formatting
 lint:
@@ -26,9 +26,9 @@ gitclean:
     git branch | grep -v "main" | grep -v "dev"| xargs git branch -D
 
 
-# run mypy on the files
-mypy:
-    uv run mypy pelican/plugins/pelican_to_sqlite/*.py --no-strict-optional
+# run ty type checking on the files
+ty:
+    uv run ty check pelican/plugins/pelican_to_sqlite
 
 
 # generates the README.md file --help section
@@ -46,5 +46,5 @@ sync branch:
     git switch {{branch}}
     git pull origin {{branch}}
 
-pre-commit:
-    pre-commit run --all-files
+prek:
+    prek run --all-files

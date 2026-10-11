@@ -30,7 +30,6 @@ Changelog = "https://github.com/ryancheley/pelican-to-sqlite/releases"
 test = [
     "pytest",
     "coverage",
-    "mypy",
 ]
 docs = [
     "mkdocs",
@@ -58,11 +57,15 @@ line-length = 130
 target-version = "py39"
 
 [tool.ruff.lint]
-select = ["E", "F", "I", "UP"]
+select = ["E", "F", "I", "UP", "D"]
 ignore = []
 
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
 [tool.ruff.lint.per-file-ignores]
-"*/_version.py" = ["UP035", "UP006", "I001"]
+"*/_version.py" = ["UP035", "UP006", "I001", "D"]
+"*/test_*.py" = ["D"]
 
 [tool.ruff.format]
 quote-style = "double"
@@ -71,9 +74,9 @@ indent-style = "space"
 [dependency-groups]
 dev = [
     "build>=1.2.2.post1",
-    "pre-commit>=4.2.0",
+    "prek>=0.5.5",
     "twine>=6.1.0",
     "pytest",
     "coverage",
-    "mypy",
+    "ty",
 ]
